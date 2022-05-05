@@ -1,4 +1,6 @@
 {
-    "ngroktoken": "",
-    "githubtoken": ""
+    "ngroktoken": "get a token from ngrok.com",
+    "githubtoken": "get a token with sufficient privilage from github.com",
+    "githubgistid": "create a gist on gists.github.com and get the id",
+    "hostuser": "your raspberry pi host user"
 }
