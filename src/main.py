@@ -24,10 +24,10 @@ def main():
     with open(os.path.join(script_dir, CONFIG_FILE)) as f:
         config = json.load(f)
     ngrok.set_auth_token(config['ngroktoken'])
-    tunnel = ngrok.connect(22, 'http')
+    tunnel = ngrok.connect(22, 'tcp')
     github = Github(config['githubtoken'])
-    gist = github.get_gist(tunnel.public_url, config['githubgistid'])
-    content = InputFileContent(generate_content(host_user=config['hostuser']))
+    gist = github.get_gist(config['githubgistid'])
+    content = InputFileContent(generate_content(tunnel.public_url, host_user=config['hostuser']))
     gist.edit(files={GIST_FILE: content})
 
 
